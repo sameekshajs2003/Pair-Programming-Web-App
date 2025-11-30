@@ -129,7 +129,6 @@ frontend/
 
    ```bash
    git clone <repository-url>
-   cd tredence
    ```
 
 2. **Start all services with Docker Compose**:
