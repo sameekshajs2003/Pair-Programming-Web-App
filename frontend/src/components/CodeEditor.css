@@ -1,0 +1,83 @@
+.code-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #1e1e1e;
+}
+
+.editor-toolbar {
+  background: #252526;
+  border-bottom: 1px solid #3e3e42;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50px;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.toolbar-label {
+  color: #cccccc;
+  font-size: 0.875rem;
+}
+
+.language-selector {
+  background: #3c3c3c;
+  color: #cccccc;
+  border: 1px solid #3e3e42;
+  border-radius: 4px;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.language-selector:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.autocomplete-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 196, 0, 0.1);
+  border: 1px solid rgba(255, 196, 0, 0.3);
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.hint-icon {
+  font-size: 1rem;
+}
+
+.hint-text {
+  color: #ffc400;
+  font-size: 0.875rem;
+  font-family: 'Courier New', monospace;
+}
+
+.hint-confidence {
+  background: rgba(255, 196, 0, 0.2);
+  color: #ffc400;
+  padding: 0.125rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

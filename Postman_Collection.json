@@ -1,0 +1,157 @@
+{
+  "info": {
+    "name": "Pair Programming API",
+    "description": "Real-time collaborative coding API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "Create Room",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 201) {",
+              "    var jsonData = pm.response.json();",
+              "    pm.environment.set(\"roomId\", jsonData.roomId);",
+              "    console.log(\"Room created: \" + jsonData.roomId);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/rooms",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "rooms"]
+        }
+      }
+    },
+    {
+      "name": "Get Room Info",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/rooms/{{roomId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "rooms", "{{roomId}}"]
+        }
+      }
+    },
+    {
+      "name": "Autocomplete - Python def",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"def \",\n  \"cursorPosition\": 4,\n  \"language\": \"python\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/autocomplete",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "autocomplete"]
+        }
+      }
+    },
+    {
+      "name": "Autocomplete - Python class",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"class \",\n  \"cursorPosition\": 6,\n  \"language\": \"python\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/autocomplete",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "autocomplete"]
+        }
+      }
+    },
+    {
+      "name": "Autocomplete - Python for loop",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"for \",\n  \"cursorPosition\": 4,\n  \"language\": \"python\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/autocomplete",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "autocomplete"]
+        }
+      }
+    },
+    {
+      "name": "Autocomplete - JavaScript function",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"function \",\n  \"cursorPosition\": 9,\n  \"language\": \"javascript\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/autocomplete",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "autocomplete"]
+        }
+      }
+    }
+  ]
+}

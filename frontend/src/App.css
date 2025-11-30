@@ -1,0 +1,32 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0f172a;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #1e293b;
+  border-right: 1px solid #334155;
+}
+
+@media (max-width: 1024px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
