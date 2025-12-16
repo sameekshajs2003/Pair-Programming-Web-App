@@ -1,7 +1,6 @@
 # Real-Time Pair Programming Application
 
 **Submitted by:** Sameeksha J S  
-**Position:** Python Developer - Tredence
 
 ---
 
